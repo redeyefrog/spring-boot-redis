@@ -1,0 +1,28 @@
+logging:
+  level:
+    root: info
+    org.springframework: info
+    com.redeyefrog: debug
+  pattern:
+    console: "%red(%d{yyyy-MM-dd HH:mm:ss}) %yellow([%thread]) %highlight(%-5level) %logger - %green(%msg%n)"
+
+spring:
+  redis:
+    # 連線超時時間(毫秒)
+    timeout: 10000
+    lettuce:
+      pool:
+        # 連線池最大連線數(使用負值表示沒有限制)
+        max-active: 8
+        # 連線池中的最大空閒連線
+        max-idle: 8
+        # 連線池中的最小空閒連線
+        min-idle: 0
+        # 連線池最大連線數(使用負值表示沒有限制)
+        max-wait: -1
+    sentinel:
+      master: redis_master
+      nodes:
+        - 127.0.0.1:26379
+        - 127.0.0.1:26479
+        - 127.0.0.1:26579

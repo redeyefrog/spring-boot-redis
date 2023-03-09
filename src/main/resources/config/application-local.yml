@@ -1,0 +1,31 @@
+logging:
+  level:
+    root: info
+    org.springframework: info
+    com.redeyefrog: debug
+  pattern:
+    console: "%red(%d{yyyy-MM-dd HH:mm:ss}) %yellow([%thread]) %highlight(%-5level) %logger - %green(%msg%n)"
+
+spring:
+  redis:
+    # Redis資料庫索引(預設為0)
+    database: 0
+    # Redis伺服器地址
+    host: 127.0.0.1
+    # Redis伺服器連線埠
+    port: 6379
+    # Redis伺服器連線密碼(預設為空)
+    password:
+    # 連線超時時間(毫秒)
+    timeout: 10000
+    # 連接池(Spring Boot 2.0以後用jedis或lettuce，預設為lettuce)
+    lettuce:
+      pool:
+        # 連線池最大連線數(使用負值表示沒有限制)
+        max-active: 8
+        # 連線池中的最大空閒連線
+        max-idle: 8
+        # 連線池中的最小空閒連線
+        min-idle: 0
+        # 連線池最大連線數(使用負值表示沒有限制)
+        max-wait: -1
